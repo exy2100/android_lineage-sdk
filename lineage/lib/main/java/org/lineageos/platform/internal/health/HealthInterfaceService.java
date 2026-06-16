@@ -38,6 +38,7 @@ public class HealthInterfaceService extends LineageSystemService {
     // Health features
     private ChargingControlController mCCC;
     private FastChargeController mFCC;
+    private WirelessFastChargeController mWFCC;
 
     public HealthInterfaceService(Context context) {
         super(context);
@@ -73,6 +74,10 @@ public class HealthInterfaceService extends LineageSystemService {
         mFCC = new FastChargeController(mContext, mHandler);
         if (mFCC.isSupported()) {
             mFeatures.add(mFCC);
+        }
+        mWFCC = new WirelessFastChargeController(mContext, mHandler);
+        if (mWFCC.isSupported()) {
+            mFeatures.add(mWFCC);
         }
 
         if (!mFeatures.isEmpty()) {
@@ -179,6 +184,26 @@ public class HealthInterfaceService extends LineageSystemService {
         @Override
         public boolean setFastChargeMode(int mode) {
             return mFCC.setFastChargeMode(mode);
+        }
+
+        @Override
+        public boolean isWirelessFastChargeSupported() {
+            return mWFCC.isSupported();
+        }
+
+        @Override
+        public int[] getSupportedWirelessFastChargeModes() {
+            return mWFCC.getSupportedWirelessFastChargeModes();
+        }
+
+        @Override
+        public int getWirelessFastChargeMode() {
+            return mWFCC.getWirelessFastChargeMode();
+        }
+
+        @Override
+        public boolean setWirelessFastChargeMode(int mode) {
+            return mWFCC.setWirelessFastChargeMode(mode);
         }
 
         @Override

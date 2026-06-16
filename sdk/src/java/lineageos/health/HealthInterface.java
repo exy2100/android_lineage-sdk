@@ -344,4 +344,65 @@ public class HealthInterface {
 
         return false;
     }
+
+    /**
+     * Returns whether wireless fast charge is supported
+     *
+     * @return true if wireless fast charge is supported
+     */
+    public boolean isWirelessFastChargeSupported() {
+        try {
+            return checkService() && sService.isWirelessFastChargeSupported();
+        } catch (RemoteException e) {
+            Log.e(TAG, e.getLocalizedMessage(), e);
+        }
+
+        return false;
+    }
+
+    /**
+     * Gets supported wireless fast charge mode
+     *
+     * @return true supported wireless fast charge modes
+     */
+    public int[] getSupportedWirelessFastChargeModes() {
+        try {
+            return checkService() ? sService.getSupportedWirelessFastChargeModes() : new int[0];
+        } catch (RemoteException e) {
+            Log.e(TAG, e.getLocalizedMessage(), e);
+        }
+
+        return new int[0];
+    }
+
+    /**
+     * Gets current wireless fast charge mode
+     *
+     * @return true current wireless fast charge mode
+     */
+    public int getWirelessFastChargeMode() {
+        try {
+            return checkService() ? sService.getWirelessFastChargeMode() : 0;
+        } catch (RemoteException e) {
+            Log.e(TAG, e.getLocalizedMessage(), e);
+        }
+
+        return 0;
+    }
+
+    /**
+     * Sets selected wireless fast charge mode
+     *
+     * @param mode the wireless fast charge mode
+     * @return true if wireless fast charge was set
+     */
+    public boolean setWirelessFastChargeMode(int mode) {
+        try {
+            return checkService() && sService.setWirelessFastChargeMode(mode);
+        } catch (RemoteException e) {
+            Log.e(TAG, e.getLocalizedMessage(), e);
+        }
+
+        return false;
+    }
 }

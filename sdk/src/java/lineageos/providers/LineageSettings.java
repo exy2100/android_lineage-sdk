@@ -27,6 +27,7 @@ import com.android.internal.util.ArrayUtils;
 import lineageos.trust.TrustInterface;
 
 import vendor.lineage.health.FastChargeMode;
+import vendor.lineage.health.WirelessFastChargeMode;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -1420,6 +1421,19 @@ public final class LineageSettings {
                 });
 
         /**
+         * Wireless fast charging mode
+         */
+        public static final String WIRELESS_FAST_CHARGE_MODE = "wireless_fast_charge_mode";
+
+        /** @hide */
+        public static final Validator WIRELESS_FAST_CHARGE_MODE_VALIDATOR =
+                new DiscreteValueValidator(new String[] {
+                        String.valueOf(WirelessFastChargeMode.NONE),
+                        String.valueOf(WirelessFastChargeMode.WIRELESS_FAST_CHARGE),
+                });
+
+
+        /**
          * Whether the battery light should be enabled (if hardware supports it)
          * The value is boolean (1 or 0).
          */
@@ -2185,6 +2199,7 @@ public final class LineageSettings {
             VALIDATORS.put(CHARGING_CONTROL_TARGET_TIME, CHARGING_CONTROL_TARGET_TIME_VALIDATOR);
             VALIDATORS.put(CHARGING_CONTROL_LIMIT, CHARGING_CONTROL_LIMIT_VALIDATOR);
             VALIDATORS.put(FAST_CHARGE_MODE, FAST_CHARGE_MODE_VALIDATOR);
+            VALIDATORS.put(WIRELESS_FAST_CHARGE_MODE, WIRELESS_FAST_CHARGE_MODE_VALIDATOR);
             VALIDATORS.put(BATTERY_LIGHT_ENABLED, BATTERY_LIGHT_ENABLED_VALIDATOR);
             VALIDATORS.put(BATTERY_LIGHT_FULL_CHARGE_DISABLED,
                     BATTERY_LIGHT_FULL_CHARGE_DISABLED_VALIDATOR);

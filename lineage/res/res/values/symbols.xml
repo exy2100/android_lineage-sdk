@@ -26,6 +26,7 @@
 
      <!-- Charging speed -->
     <java-symbol type="string" name="charging_speed" />
+    <java-symbol type="string" name="wireless_charging_speed" />
     <java-symbol type="array" name="charging_speed_entries" />
     <java-symbol type="array" name="charging_speed_values" />
 

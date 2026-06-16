@@ -31,4 +31,9 @@ interface IHealthInterface {
     int[] getSupportedFastChargeModes();
     int getFastChargeMode();
     boolean setFastChargeMode(int mode);
+
+    boolean isWirelessFastChargeSupported();
+    int[] getSupportedWirelessFastChargeModes();
+    int getWirelessFastChargeMode();
+    boolean setWirelessFastChargeMode(int mode);
 }

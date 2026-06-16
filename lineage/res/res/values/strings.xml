@@ -45,6 +45,7 @@
 
     <!-- Charging speed strings -->
     <string name="charging_speed">Charging speed</string>
+    <string name="wireless_charging_speed">Wireless charging speed</string>
     <string name="charging_speed_slow">Slow</string>
     <string name="charging_speed_fast">Fast</string>
     <string name="charging_speed_super_fast">Super fast</string>
